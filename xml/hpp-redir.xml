@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE paymentService PUBLIC "-//WorldPay//DTD WorldPay PaymentService v1//EN" "http://dtd.worldpay.com/paymentService_v1.dtd">
+<paymentService version="1.4" merchantCode="ENGOOJPY">
+  <submit>
+    <order orderCode="ENGOOXMLSUBMIT" installationId="1083371">
+      <description>jsredirect test order</description>
+      <amount value="1000" currencyCode="EUR" exponent="2"/>
+      <orderContent>
+      <![CDATA[]]>
+      </orderContent>
+      <paymentMethodMask>
+        <include code="ALL"/>
+      </paymentMethodMask>
+      <shopper>
+        <shopperEmailAddress>sp@worldpay.com</shopperEmailAddress>
+        <authenticatedShopperID>ENGOO_0001</authenticatedShopperID>
+      </shopper>
+      <billingAddress>
+        <address>
+          <firstName>John</firstName>
+          <lastName>Doe</lastName>
+          <address1>Worldpay</address1>
+          <address2>270-289 The Science Park</address2>
+          <address3>Milton Road</address3>
+          <postalCode>CB4 0WE</postalCode>
+          <city>Cambridge</city>
+          <countryCode>GB</countryCode>
+        </address>
+      </billingAddress>
+      <createToken tokenScope="shopper">
+        <tokenEventReference>createToken_20151209</tokenEventReference>
+        <tokenReason>newCard</tokenReason>
+      </createToken>
+    </order>
+  </submit>
+</paymentService>

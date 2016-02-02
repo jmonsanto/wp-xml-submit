@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Bibo-WP XML Submit 1.0</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+    <!-- Font Awesome CSS  -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/submit.css" rel="stylesheet">
+    <link href="css/grid.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Worldpay XML Submit</h1>
+        <p class="lead">Generates ready to submit XML files for different kind of transactions in Worldpay</p>
+      </div>
+
+      <h3>XML Request</h3>
+      <form id="xml-details">
+      <div class="row">
+        <div class="col-md-12">
+          <textarea name="xml-area" id="xml-area" cols="155" rows="10" spellcheck="false"></textarea>
+        </div>
+        <div class="col-md-4">
+          <table class="table" style="margin-bottom: 0">
+            <tr>
+              <td>Username:</td>
+              <td><input name="wp-username" type="text" id="wp-username"></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input name="wp-password" type="text" id="wp-password"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-8">
+          <table class="table" style="margin-bottom: 0">
+            <tr>
+              <td>Load Example:</td>
+              <td>
+                <select name="xml-select" id="xml-select">
+                  <option value=""></option>
+                  <option value="hpp-redir">HPP Redirect</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Submit URL:</td>
+              <td>
+                <select name="xml-submit-url" id="xml-submit-url">
+                  <option value=""></option>
+                  <option value="https://secure-test.worldpay.com/jsp/merchant/xml/paymentService.jsp">https://secure-test.worldpay.com/jsp/merchant/xml/paymentService.jsp</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      </form>
+
+      <div class="pull-xs-right">
+        <div class="row">
+          <button id="xml-submit" class="btn btn-primary" type="submit">Submit XML</button>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <h4>XML Response:</h4>
+      <div class="row" id="xml-response-div">
+        <div class="col-md-12 response">
+          <textarea name="xml-response" id="xml-response" cols="155" rows="10" spellcheck="false"></textarea>
+        </div>
+      </div>
+
+      <h4>Append String</h4>
+
+      <div class="row">
+        <div class="col-md-12">
+          <input id="wp-additional-query-string" type="text" style="width: 100%" value="&country=US&language=en&preferredPaymentMethod=">
+        </div>
+      </div>
+
+      <h4>Redirect URL</h4>
+
+      <div class="row">
+        <div class="col-md-12">
+          <a id="wp-response-link" href="#" target="_blank"></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">.col-lg-4</div>
+        <div class="col-lg-4">.col-lg-4</div>
+        <div class="col-lg-4">.col-lg-4</div>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script src="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="js/isloading.js"></script>
+    <script src="js/submit.js"></script>
+  </body>
+</html>

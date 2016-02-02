@@ -1,0 +1,11 @@
+# WP XML Submit 1.0
+
+This will create XML requests ready and output a link to transact to Worldpay,
+there are some values that are needed to modify -- but otherwise the template is
+completed.
+
+See all documentation and guides here in: https://support.worldpay.com
+
+Requirements:
+PHP5 && PHP5-curl library (sudo apt-get install php5-curl)
+Working internet connection -- all bootstrap and jquery files are loaded via CDN
