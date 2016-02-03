@@ -55,6 +55,7 @@
               <td>
                 <select name="xml-select" id="xml-select">
                   <option value=""></option>
+                  <option value="xml-redir">XML Redirect (non HPP)</option>
                   <option value="hpp-redir">HPP Redirect</option>
                 </select>
               </td>
@@ -87,8 +88,14 @@
         </div>
       </div>
 
-      <h4>Append String</h4>
+      <h4>Custom URL's</h4>
+      <div class="row">
+        <div class="col-lg-4">successURL:</div>
+        <div class="col-lg-4">errorURL:</div>
+        <div class="col-lg-4">cancelURL:</div>
+      </div>
 
+      <h4>Append String</h4>
       <div class="row">
         <div class="col-md-12" id="wp-additional-query-container">
           <input id="wp-additional-query-string" type="text" style="width: 100%" value="&country=US&language=en&preferredPaymentMethod=">
@@ -96,21 +103,13 @@
       </div>
 
       <h4>Redirect URL</h4>
-
       <div class="row">
         <div class="col-md-12 url-wrap">
           <a id="wp-response-link" href="#" target="_blank"></a>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-4">.col-lg-4</div>
-        <div class="col-lg-4">.col-lg-4</div>
-        <div class="col-lg-4">.col-lg-4</div>
-      </div>
-
     </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -1,6 +1,8 @@
 // TODO: IF selecting the blank dropdown reset the textarea
 $(function() {
 
+  var redirUrl = "";
+
   // LISTENERS
   $("#xml-select").on("change", function() {
     filename = function(val) {
@@ -26,6 +28,12 @@ $(function() {
     } else {
       alert("Please supply a username, password and choose a submit URL!")
     }
+  });
+
+  $("#wp-additional-query-string").on("input", function() {
+    // Combine link and string here
+    value = redirUrl + this.value;
+    update_redirect_url(value);
   });
 
   function load_xml(filename) {
@@ -55,8 +63,9 @@ $(function() {
       dataType: "text",
       success: function(result) {
         xml = process_xml(result)
-        supply_xml_response(result)
-        supply_wp_response(xml)
+        set_redir_url(xml);
+        supply_xml_response(result);
+        supply_wp_response(xml);
       },
       error: function(xhr, ajaxOptions, thrownError) {
         alert("Error " + xhr.status + " : " + thrownError);
@@ -80,16 +89,24 @@ $(function() {
 
   // Supplies the wp response link in the view, needs the valid xml doc
   function supply_wp_response(xml) {
-    $("#wp-response-link").attr("href", xml.find("reference")
-                                              .text()
-                                              .concat(get_append_string()));
-    $("#wp-response-link").text(xml.find("reference")
-                                      .text()
-                                      .concat(get_append_string()));
+    link = $("#wp-response-link");
+    link.attr("href", xml.find("reference").text().concat(get_append_string()));
+    link.text(xml.find("reference").text().concat(get_append_string()));
   }
 
   // Supplies the xml response in the view, needs the valid xml doc
   function supply_xml_response(result) {
     $("#xml-response").text(result);
+  }
+
+  // Update the redirection url on update
+  function update_redirect_url(query_str) {
+    $("#wp-response-link").html(query_str);
+    $("#wp-response-link").attr("href", query_str);
+  }
+
+  // Manually updates the global var redirUrl
+  function set_redir_url(xml) {
+    redirUrl = xml.find("reference").text();
   }
 });
