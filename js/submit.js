@@ -57,11 +57,12 @@ $(function() {
         xml = process_xml(result)
         supply_xml_response(result)
         supply_wp_response(xml)
-
-        $("#xml-response-div .response").isLoading("hide");
       },
       error: function(xhr, ajaxOptions, thrownError) {
         alert("Error " + xhr.status + " : " + thrownError);
+      },
+      complete: function() {
+        $("#xml-response-div .response").isLoading("hide");
       }
     });
   }
