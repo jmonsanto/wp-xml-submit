@@ -54,16 +54,10 @@ $(function() {
       data: data,
       dataType: "text",
       success: function(result) {
-        // TODO: Refactor
-        xml = $.parseXML(result);
-        xmlDoc = $(xml);
-        $("#xml-response").text(result);
-        $("#wp-response-link").attr("href", xmlDoc.find("reference")
-                                                  .text()
-                                                  .concat(get_append_string()));
-        $("#wp-response-link").text(xmlDoc.find("reference")
-                                          .text()
-                                          .concat(get_append_string()));
+        xml = process_xml(result)
+        supply_xml_response(result)
+        supply_wp_response(xml)
+
         $("#xml-response-div .response").isLoading("hide");
       },
       error: function(xhr, ajaxOptions, thrownError) {
@@ -72,7 +66,29 @@ $(function() {
     });
   }
 
+  // Fetch the value in the additional query string field
   function get_append_string() {
     return $("#wp-additional-query-string").val();
+  }
+
+  // Returns an XML document
+  function process_xml(obj) {
+    xml = $.parseXML(obj);
+    return $(xml);
+  }
+
+  // Supplies the wp response link in the view, needs the valid xml doc
+  function supply_wp_response(xml) {
+    $("#wp-response-link").attr("href", xml.find("reference")
+                                              .text()
+                                              .concat(get_append_string()));
+    $("#wp-response-link").text(xml.find("reference")
+                                      .text()
+                                      .concat(get_append_string()));
+  }
+
+  // Supplies the xml response in the view, needs the valid xml doc
+  function supply_xml_response(result) {
+    $("#xml-response").text(result);
   }
 });
