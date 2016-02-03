@@ -11,13 +11,19 @@ input, select {
   overflow: auto;
 }
 
+.url-wrap {
+  overflow: auto;
+}
+
 .isloading-wrapper.isloading-right {
   margin-left: 10px;
 }
+
 .isloading-overlay {
   position: relative;
   text-align: center;
 }
+
 .isloading-overlay .isloading-wrapper {
   background: #FFFFFF;
   -webkit-border-radius: 7px;
